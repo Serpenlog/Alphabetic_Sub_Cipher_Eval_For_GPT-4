@@ -1,5 +1,5 @@
 def limit_line_length(input_file, output_file, max_length=100):
-    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+    with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', encoding='utf-8') as outfile:
         for line in infile:
             words = line.split()
             current_line = []
