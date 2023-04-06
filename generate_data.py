@@ -1,3 +1,4 @@
+import os
 from replace_numbers import replace_numbers
 from remove_empty_lines import remove_empty_lines
 from capitalize import capitalize_text
@@ -42,3 +43,13 @@ def generate_data():
     # Phase 8: Create JSONL
     data_file = "data.txt"
     create_jsonl(key_file, encrypted_ex_file, input_ex_file, encrypted_msg_file, input_file, data_file)
+
+    # Call delete_files() function to clean up intermediate files
+    delete_files("phase1.txt", "phase2.txt", "input.txt", "key.txt", "input_ex.txt", "encrypted_msg.txt", "encrypted_ex.txt")
+
+def delete_files(*files):
+    for file in files:
+        try:
+            os.remove(file)
+        except FileNotFoundError:
+            print(f"File {file} not found.")

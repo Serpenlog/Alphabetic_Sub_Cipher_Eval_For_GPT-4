@@ -1,13 +1,6 @@
 import json
 
-def create_jsonl():
-    key_file = input("Enter the key file name: ")
-    encrypted_example_file = input("Enter the encrypted example file name: ")
-    decrypted_example_file = input("Enter the decrypted example file name: ")
-    encrypted_message_file = input("Enter the encrypted message file name: ")
-    original_message_file = input("Enter the original message file name: ")
-    output_file = input("Enter the output file name: ")
-
+def create_jsonl(key_file, encrypted_example_file, decrypted_example_file, encrypted_message_file, original_message_file, output_file):
     with open(key_file, "r") as keyfile, open(encrypted_example_file, "r") as enc_ex_file, open(decrypted_example_file, "r") as dec_ex_file, open(encrypted_message_file, "r") as enc_msg_file, open(original_message_file, "r") as org_msg_file, open(output_file, "w") as outfile:
         for key_line, enc_ex_line, dec_ex_line, enc_msg_line, org_msg_line in zip(keyfile, enc_ex_file, dec_ex_file, enc_msg_file, org_msg_file):
             data = {

@@ -1,13 +1,11 @@
 import itertools
 import random
 
-def generate_permutations():
-    n = int(input("Enter the number of permutations: "))
-    output_file = input("Enter the output file name: ")
-
-    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+def generate_permutations(n, output_file):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    random.seed(42)
 
     with open(output_file, "w") as outfile:
         for _ in range(n):
-            perm = ''.join(random.sample(alphabet, len(alphabet)))
-            outfile.write(perm + "\n")
+            permutation = ''.join(random.sample(alphabet, len(alphabet)))
+            outfile.write(permutation + "\n")

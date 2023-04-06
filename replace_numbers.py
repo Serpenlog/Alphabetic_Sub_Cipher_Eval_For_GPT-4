@@ -1,16 +1,8 @@
-import inflect
-
-def replace_numbers():
-    input_file = input("Enter the input file name: ")
-    output_file = input("Enter the output file name: ")
+def replace_numbers(input_file, output_file):
+    import inflect
     p = inflect.engine()
 
-    with open(input_file, "r") as infile, open(output_file, "w") as outfile:
+    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
         for line in infile:
-            words = line.split()
-            new_line = []
-            for word in words:
-                if word.isdigit():
-                    word = p.number_to_words(word)
-                new_line.append(word)
-            outfile.write(" ".join(new_line) + "\n")
+            replaced_line = ' '.join([p.number_to_words(word) if word.isdigit() else word for word in line.split()])
+            outfile.write(replaced_line + '\n')
