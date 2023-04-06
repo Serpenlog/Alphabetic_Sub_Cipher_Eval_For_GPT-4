@@ -9,6 +9,7 @@ from decrypt_document import decrypt_document
 from repeat_sentence import repeat_sentence
 from create_jsonl import create_jsonl
 from generate_data import generate_data
+from limit_line_length import limit_line_length
 
 def main():
     if len(sys.argv) < 2:
@@ -40,6 +41,10 @@ def main():
         create_jsonl()
     elif operation == "generate_data":
         generate_data()
+    elif operation == "limit_line_length":
+        input_file = sys.argv[2]
+        output_file = sys.argv[3]
+        limit_line_length(input_file, output_file)
     else:
         print("Invalid operation")
 
