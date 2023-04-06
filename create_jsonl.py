@@ -26,4 +26,5 @@ def create_jsonl(key_file, encrypted_example_file, decrypted_example_file, encry
                 ],
                 "ideal": f"Decrypted message: {org_msg_line.strip()}"
             }
-            outfile.write(json.dumps(data) + "\n")
+            json_line = json.dumps(data, ensure_ascii=False) # ensure_ascii=False to prevent unicode escaping
+            outfile.write(json_line + "\n")

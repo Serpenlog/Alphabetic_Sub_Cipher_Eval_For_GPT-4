@@ -46,7 +46,8 @@ def generate_data():
     encrypt_document(key_file, input_ex_file, encrypted_ex_file)
 
     # Phase 9: Create JSONL
-    data_file = "data.txt"
+
+    data_file = input("Enter the data file name: ")
     create_jsonl(key_file, encrypted_ex_file, input_ex_file, encrypted_msg_file, input_file, data_file)
 
     # Call delete_files() function to clean up intermediate files
